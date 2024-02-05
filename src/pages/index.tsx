@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className="flex min-h-screen flex-col items-center justify-center bg-center text-brand-primary"
+        className="flex min-h-screen flex-col items-center justify-center bg-cover bg-center text-brand-primary"
         style={{
           backgroundImage:
             "linear-gradient(180deg, transparent 0%, #FFFFFF 100%), url('/img/bg.jpg')",
