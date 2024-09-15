@@ -1,532 +1,514 @@
-import { useState } from "react";
-import {
-  Star,
-  StarOff,
-  ChevronDown,
-  Plus,
-  Minus,
-  Search,
-  Check,
-  Heart,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useState } from 'react'
+import { Star, StarOff, ChevronDown, Plus, Minus, Search, Check } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Progress } from '@/components/ui/progress'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Input } from "@/components/ui/input";
-import Logo from "@/components/Logo";
+} from '@/components/ui/dropdown-menu'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Badge } from '@/components/ui/badge'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import { Input } from '@/components/ui/input'
+import Logo from '@/components/Logo'
 
-type Rarity = "Common" | "Secret" | "Robby";
+type Rarity = 'Common' | 'Secret' | 'Robby'
 
 type SonnyAngel = {
-  id: string;
-  name: string;
-  series: string;
-  releaseDate: string;
-  image: string;
-  owned: boolean;
-  wishlist: boolean;
-  rarity: Rarity;
-};
+  id: string
+  name: string
+  series: string
+  releaseDate: string
+  image: string
+  owned: boolean
+  wishlist: boolean
+  rarity: Rarity
+}
 
 export default function Home() {
   const [sonnyAngels, setSonnyAngels] = useState<SonnyAngel[]>([
     {
-      id: "1",
-      name: "Rabbit",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '1',
+      name: 'Rabbit',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "2",
-      name: "Elephant",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '2',
+      name: 'Elephant',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "3",
-      name: "Panda",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '3',
+      name: 'Panda',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "4",
-      name: "Sloth",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '4',
+      name: 'Sloth',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "5",
-      name: "Owl",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '5',
+      name: 'Owl',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "6",
-      name: "Tiger",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '6',
+      name: 'Tiger',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "7",
-      name: "White Bear",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '7',
+      name: 'White Bear',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "8",
-      name: "Cockerel",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '8',
+      name: 'Cockerel',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "9",
-      name: "Dalmatian",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '9',
+      name: 'Dalmatian',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "10",
-      name: "Monkey",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '10',
+      name: 'Monkey',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "11",
-      name: "Frog",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '11',
+      name: 'Frog',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "12",
-      name: "Koala",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '12',
+      name: 'Koala',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "13",
-      name: "Chipmunk",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '13',
+      name: 'Chipmunk',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Secret",
+      rarity: 'Secret',
     },
     {
-      id: "14",
-      name: "Robby Angel",
-      series: "Animal Series 1",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '14',
+      name: 'Robby Angel',
+      series: 'Animal Series 1',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Robby",
+      rarity: 'Robby',
     },
     {
-      id: "15",
-      name: "Mouse",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '15',
+      name: 'Mouse',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "16",
-      name: "Lesser Panda",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '16',
+      name: 'Lesser Panda',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "17",
-      name: "Chameleon",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '17',
+      name: 'Chameleon',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "18",
-      name: "Uribou",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '18',
+      name: 'Uribou',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "19",
-      name: "Skunk",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '19',
+      name: 'Skunk',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "20",
-      name: "Sheep",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '20',
+      name: 'Sheep',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "21",
-      name: "Hedgehog",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '21',
+      name: 'Hedgehog',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "22",
-      name: "Fawn",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '22',
+      name: 'Fawn',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "23",
-      name: "Duck",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '23',
+      name: 'Duck',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "24",
-      name: "Cow",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '24',
+      name: 'Cow',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "25",
-      name: "Reindeer",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '25',
+      name: 'Reindeer',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "26",
-      name: "Pig",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '26',
+      name: 'Pig',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "27",
-      name: "Kappa Baby",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '27',
+      name: 'Kappa Baby',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Secret",
+      rarity: 'Secret',
     },
     {
-      id: "28",
-      name: "Robby Angel",
-      series: "Animal Series 2",
-      releaseDate: "2018",
-      image: "https://via.placeholder.com/150",
+      id: '28',
+      name: 'Robby Angel',
+      series: 'Animal Series 2',
+      releaseDate: '2018',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Robby",
+      rarity: 'Robby',
     },
     {
-      id: "29",
-      name: "Shark",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '29',
+      name: 'Shark',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "30",
-      name: "Jellyfish",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '30',
+      name: 'Jellyfish',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "31",
-      name: "Clownfish",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '31',
+      name: 'Clownfish',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "32",
-      name: "Shell",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '32',
+      name: 'Shell',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "33",
-      name: "Penguin",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '33',
+      name: 'Penguin',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "34",
-      name: "Manta",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '34',
+      name: 'Manta',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "35",
-      name: "Dolphin",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '35',
+      name: 'Dolphin',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "36",
-      name: "Seal",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '36',
+      name: 'Seal',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "37",
-      name: "Seahorse",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '37',
+      name: 'Seahorse',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "38",
-      name: "Whale",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '38',
+      name: 'Whale',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "39",
-      name: "Blowfish",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '39',
+      name: 'Blowfish',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "40",
-      name: "Starfish",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '40',
+      name: 'Starfish',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Common",
+      rarity: 'Common',
     },
     {
-      id: "41",
-      name: "Turtle",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '41',
+      name: 'Turtle',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Secret",
+      rarity: 'Secret',
     },
     {
-      id: "42",
-      name: "Robby Angel",
-      series: "Marine Series",
-      releaseDate: "2019",
-      image: "https://via.placeholder.com/150",
+      id: '42',
+      name: 'Robby Angel',
+      series: 'Marine Series',
+      releaseDate: '2019',
+      image: 'https://via.placeholder.com/150',
       owned: false,
       wishlist: false,
-      rarity: "Robby",
+      rarity: 'Robby',
     },
-  ]);
+  ])
 
-  const [sortBy, setSortBy] = useState<"series" | "releaseDate">("series");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeTab, setActiveTab] = useState("all");
+  const [sortBy, setSortBy] = useState<'series' | 'releaseDate'>('series')
+  const [searchTerm, setSearchTerm] = useState('')
+  const [activeTab, setActiveTab] = useState('all')
 
   const toggleOwned = (id: string) => {
     setSonnyAngels((angels) =>
       angels.map((angel) =>
-        angel.id === id
-          ? { ...angel, owned: !angel.owned, wishlist: false }
-          : angel
-      )
-    );
-  };
+        angel.id === id ? { ...angel, owned: !angel.owned, wishlist: false } : angel,
+      ),
+    )
+  }
 
   const toggleWishlist = (id: string) => {
     setSonnyAngels((angels) =>
       angels.map((angel) =>
-        angel.id === id
-          ? { ...angel, wishlist: !angel.wishlist, owned: false }
-          : angel
-      )
-    );
-  };
+        angel.id === id ? { ...angel, wishlist: !angel.wishlist, owned: false } : angel,
+      ),
+    )
+  }
 
-  const getFilteredAngels = (view: "all" | "collection" | "wishlist") => {
-    let filtered = sonnyAngels;
-    if (view === "collection") {
-      filtered = sonnyAngels.filter((angel) => angel.owned);
-    } else if (view === "wishlist") {
-      filtered = sonnyAngels.filter((angel) => angel.wishlist);
+  const getFilteredAngels = (view: 'all' | 'collection' | 'wishlist') => {
+    let filtered = sonnyAngels
+    if (view === 'collection') {
+      filtered = sonnyAngels.filter((angel) => angel.owned)
+    } else if (view === 'wishlist') {
+      filtered = sonnyAngels.filter((angel) => angel.wishlist)
     }
 
     filtered = filtered.filter(
       (angel) =>
         angel.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        angel.series.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+        angel.series.toLowerCase().includes(searchTerm.toLowerCase()),
+    )
 
     return filtered.sort((a, b) => {
-      if (sortBy === "series") {
-        return a.series.localeCompare(b.series);
+      if (sortBy === 'series') {
+        return a.series.localeCompare(b.series)
       } else {
-        return a.releaseDate.localeCompare(b.releaseDate);
+        return a.releaseDate.localeCompare(b.releaseDate)
       }
-    });
-  };
+    })
+  }
 
-  const collectedCount = sonnyAngels.filter((angel) => angel.owned).length;
-  const totalCount = sonnyAngels.length;
-  const progress = (collectedCount / totalCount) * 100;
+  const collectedCount = sonnyAngels.filter((angel) => angel.owned).length
+  const totalCount = sonnyAngels.length
+  const progress = (collectedCount / totalCount) * 100
 
   const getRarityColor = (rarity: Rarity) => {
     switch (rarity) {
-      case "Common":
-        return "bg-geraldine-200 text-geraldine-800";
-      case "Secret":
-        return "bg-yellow-200 text-yellow-800";
-      case "Robby":
-        return "bg-purple-200 text-purple-800";
+      case 'Common':
+        return 'bg-geraldine-200 text-geraldine-800'
+      case 'Secret':
+        return 'bg-yellow-200 text-yellow-800'
+      case 'Robby':
+        return 'bg-purple-200 text-purple-800'
     }
-  };
+  }
 
   return (
     <TooltipProvider>
@@ -573,10 +555,8 @@ export default function Home() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem onSelect={() => setSortBy("series")}>
-                Series
-              </DropdownMenuItem>
-              <DropdownMenuItem onSelect={() => setSortBy("releaseDate")}>
+              <DropdownMenuItem onSelect={() => setSortBy('series')}>Series</DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => setSortBy('releaseDate')}>
                 Release Date
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -586,9 +566,7 @@ export default function Home() {
         <Tabs
           defaultValue="all"
           className="mb-6"
-          onValueChange={(value) =>
-            setActiveTab(value as "all" | "collection" | "wishlist")
-          }
+          onValueChange={(value) => setActiveTab(value as 'all' | 'collection' | 'wishlist')}
         >
           <TabsList className="mx-auto mb-4 grid w-full max-w-md grid-cols-3 rounded-full bg-geraldine-100 p-1">
             <TabsTrigger value="all" className="rounded-full">
@@ -601,16 +579,11 @@ export default function Home() {
               Wishlist
             </TabsTrigger>
           </TabsList>
-          {["all", "collection", "wishlist"].map((view) => (
+          {['all', 'collection', 'wishlist'].map((view) => (
             <TabsContent key={view} value={view}>
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-                {getFilteredAngels(
-                  view as "all" | "collection" | "wishlist"
-                ).map((angel) => (
-                  <div
-                    key={angel.id}
-                    className="rounded-lg bg-white p-4 shadow-md"
-                  >
+                {getFilteredAngels(view as 'all' | 'collection' | 'wishlist').map((angel) => (
+                  <div key={angel.id} className="rounded-lg bg-white p-4 shadow-md">
                     <div className="relative">
                       <img
                         src={angel.image}
@@ -619,7 +592,7 @@ export default function Home() {
                       />
                       <Badge
                         className={`absolute right-2 top-2 ${getRarityColor(
-                          angel.rarity
+                          angel.rarity,
                         )} rounded-full px-2 py-0.5 text-xs`}
                       >
                         {angel.rarity}
@@ -627,13 +600,9 @@ export default function Home() {
                     </div>
                     <h3 className="flex items-center truncate font-semibold text-geraldine-600">
                       {angel.name}
-                      {angel.owned && (
-                        <Check className="ml-1 h-5 w-5 text-geraldine-300" />
-                      )}
+                      {angel.owned && <Check className="ml-1 h-5 w-5 text-geraldine-300" />}
                     </h3>
-                    <p className="truncate text-xs text-gray-500">
-                      {angel.series}
-                    </p>
+                    <p className="truncate text-xs text-gray-500">{angel.series}</p>
                     <div className="mt-2 flex items-center justify-between">
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -642,8 +611,8 @@ export default function Home() {
                             size="icon"
                             className={`rounded-full bg-geraldine-100 text-geraldine-600 hover:bg-geraldine-200 ${
                               angel.owned
-                                ? "bg-geraldine-400 text-white hover:bg-geraldine-500"
-                                : ""
+                                ? 'bg-geraldine-400 text-white hover:bg-geraldine-500'
+                                : ''
                             }`}
                             onClick={() => toggleOwned(angel.id)}
                           >
@@ -656,7 +625,7 @@ export default function Home() {
                         </TooltipTrigger>
                         <TooltipContent className="bg-geraldine-200">
                           <p className="text-geraldine-950">
-                            {angel.owned ? "Remove from" : "Add to"} collection
+                            {angel.owned ? 'Remove from' : 'Add to'} collection
                           </p>
                         </TooltipContent>
                       </Tooltip>
@@ -667,8 +636,8 @@ export default function Home() {
                             size="icon"
                             className={`rounded-full bg-geraldine-100 text-geraldine-600 hover:bg-geraldine-200 ${
                               angel.wishlist
-                                ? "bg-geraldine-400 text-white hover:bg-geraldine-500"
-                                : ""
+                                ? 'bg-geraldine-400 text-white hover:bg-geraldine-500'
+                                : ''
                             }`}
                             onClick={() => toggleWishlist(angel.id)}
                           >
@@ -680,9 +649,7 @@ export default function Home() {
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>
-                            {angel.wishlist ? "Remove from" : "Add to"} wishlist
-                          </p>
+                          <p>{angel.wishlist ? 'Remove from' : 'Add to'} wishlist</p>
                         </TooltipContent>
                       </Tooltip>
                     </div>
@@ -694,5 +661,5 @@ export default function Home() {
         </Tabs>
       </div>
     </TooltipProvider>
-  );
+  )
 }

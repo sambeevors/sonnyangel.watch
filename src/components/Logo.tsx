@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
 const Logo = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       viewBox="0 0 448 227"
       fill="none"
-      className={cn(["h-auto w-full max-w-96", className])}
+      className={cn(['h-auto w-full max-w-96', className])}
       {...props}
     >
       <path
@@ -27,7 +27,7 @@ const Logo = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => {
         stroke-width="7.679"
       ></path>
     </svg>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo
